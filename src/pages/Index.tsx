@@ -1,5 +1,4 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+
 import { Hero } from "@/components/Hero";
 import { ProgramCard } from "@/components/ProgramCard";
 import { ValueCard } from "@/components/ValueCard";
@@ -22,18 +21,24 @@ import {
   TrendingUp,
   Calendar,
   ArrowRight,
+  Eye,
   Building2,
 } from "lucide-react";
+
+import Parceiros from "@/components/Parceiros";
+
 import { Link } from "react-router-dom";
-import programasEducacao from "@/assets/programas-educacao.jpg";
-import programasPsicologia from "@/assets/programas-psicologia.jpg";
-import programasOficinas from "@/assets/programas-oficinas.jpg";
+import i1 from "@/assets/1.png";
+import i2 from "@/assets/2.png";
+import i3 from "@/assets/3.png";
+import i4 from "@/assets/4.png";
+import i5 from "@/assets/5.png";
+import i6 from "@/assets/6.png";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Header />
-      
+
       {/* Hero Section */}
       <Hero />
 
@@ -46,8 +51,8 @@ const Index = () => {
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-white/95 leading-relaxed">
-              Desde 1960, somos um projeto social sem fins lucrativos que utiliza o Serviço de Convivência e Fortalecimento de Vínculos, 
-              atendendo crianças e adolescentes de 6 a 14 anos em situação de vulnerabilidade social nas zonas rurais e urbanas 
+              Desde 1960, somos uma entidade social sem fins lucrativos que utiliza o Serviço de Convivência e Fortalecimento de Vínculos,
+              atendendo crianças e adolescentes de 6 a 14 anos em situação de vulnerabilidade social nas zonas rurais e urbanas
               do município de Rancharia no contraturno escolar, de segunda a sexta-feira, das 8h às 17h.
             </p>
           </div>
@@ -61,7 +66,7 @@ const Index = () => {
             </Card>
             <Card className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
               <CardContent className="p-8">
-                <div className="text-4xl font-bold text-primary mb-2">500+</div>
+                <div className="text-4xl font-bold text-primary mb-2">6000+</div>
                 <p className="text-muted-foreground">Vidas Transformadas</p>
               </CardContent>
             </Card>
@@ -76,7 +81,7 @@ const Index = () => {
       </section>
 
       {/* Missão, Visão e Valores */}
-      <section className="section-padding bg-gradient-to-br from-primary/10 to-secondary/10">
+      <section className="pb-12 pt-24 px-4">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -86,27 +91,82 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <ValueCard
-              icon={Target}
-              title="Missão"
-              description="Acolher e proteger crianças e adolescentes de 6 a 14 anos, trabalhando em parceria com a Assistência Social para garantir seus direitos fundamentais."
-            />
-            <ValueCard
-              icon={TrendingUp}
-              title="Visão"
-              description="Ser referência em acolhimento institucional, garantindo proteção, desenvolvimento integral e reintegração familiar responsável."
-            />
-            <ValueCard
-              icon={Heart}
-              title="Valores"
-              description="Amor, respeito, dignidade, solidariedade e compromisso com o desenvolvimento pleno de cada criança e adolescente acolhido."
-            />
+            <Card className="shadow-card hover:shadow-hover transition-smooth bg-white">
+              <CardContent className="p-8">
+                <Target className="text-primary mb-4" size={48} />
+                <h3 className="text-2xl font-bold text-primary mb-4">Missão</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Acolher e proteger crianças e adolescentes de 6 a 14 anos em situação de
+                  vulnerabilidade, trabalhando em parceria com a Assistência Social para garantir
+                  seus direitos fundamentais, proporcionando um ambiente seguro e acolhedor com
+                  profissionais qualificados e comprometidos.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-card hover:shadow-hover transition-smooth bg-white">
+              <CardContent className="p-8">
+                <Eye className="text-primary mb-4" size={48} />
+                <h3 className="text-2xl font-bold text-primary mb-4">Visão</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Ser referência em atendimento socioeducativo, reconhecida pela excelência
+                  no atendimento e pelo compromisso com o desenvolvimento social das crianças e
+                  adolescentes acolhidos, em parceria com a rede de Assistência Social.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="shadow-card hover:shadow-hover transition-smooth bg-white">
+              <CardContent className="p-8">
+                <Heart className="text-primary mb-4" size={48} />
+                <h3 className="text-2xl font-bold text-primary mb-4">Valores</h3>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary mt-1">•</span>
+                    <span>Amor e respeito à dignidade humana</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary mt-1">•</span>
+                    <span>Compromisso com o desenvolvimento integral</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary mt-1">•</span>
+                    <span>Solidariedade e responsabilidade social</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary mt-1">•</span>
+                    <span>Transparência e ética</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-secondary mt-1">•</span>
+                    <span>Trabalho em equipe e profissionalismo</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
+
+      {/* Divisória Decorativa */}
+      <div className="w-full py-12 flex justify-center items-center">
+        <div className="relative w-full max-w-4xl">
+          {/* Linha central com gradiente */}
+          <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
+
+          {/* Elemento decorativo centrado */}
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 bg-background">
+            <Heart
+              className="text-primary drop-shadow-md animate-pulse"
+              size={36}
+            />
+          </div>
+        </div>
+      </div>
+
       {/* Programas */}
-      <section className="section-padding bg-background">
+      <section className="pt-6 pb-12 bg-background px-4">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -119,46 +179,48 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <ProgramCard
-                icon={Home}
-                title="Acolhimento Institucional"
-                description="Ambiente seguro e acolhedor para crianças e adolescentes de 6 a 14 anos, com cuidados integrais 24 horas."
-                image={programasEducacao}
-              />
-              <ProgramCard
-                icon={BookOpen}
-                title="Apoio às Atividades Escolares"
-                description="Acompanhamento das atividades escolares em parceria com a rede de ensino municipal."
-                image={programasEducacao}
-              />
-              <ProgramCard
-                icon={Brain}
-                title="Apoio Psicossocial"
-                description="Atendimento psicológico e social para desenvolvimento emocional e fortalecimento de vínculos."
-                image={programasPsicologia}
-              />
-              <ProgramCard
-                icon={Palette}
-                title="Atividades Recreativas"
-                description="Arte, música, dança, esportes e brincadeiras que promovem socialização e bem-estar."
-                image={programasOficinas}
-              />
-              <ProgramCard
-                icon={Users}
-                title="Reintegração Familiar"
-                description="Trabalho junto à Assistência Social para reintegração familiar responsável."
-              />
-              <ProgramCard
-                icon={Shield}
-                title="Articulação em Rede"
-                description="Parceria com a rede de Assistência Social, saúde e educação da região."
-              />
+            <ProgramCard
+              icon={Home}
+              title="Acolhimento Institucional"
+              description="Ambiente seguro e acolhedor para crianças e adolescentes de 6 a 14 anos, com cuidados integrais 24 horas."
+              image={i1}
+            />
+            <ProgramCard
+              icon={BookOpen}
+              title="Apoio às Atividades Escolares"
+              description="Acompanhamento das atividades escolares em parceria com a rede de ensino municipal."
+              image={i2}
+            />
+            <ProgramCard
+              icon={Brain}
+              title="Apoio Psicossocial"
+              description="Atendimento psicológico e social para desenvolvimento emocional e fortalecimento de vínculos."
+              image={i3}
+            />
+            <ProgramCard
+              icon={Palette}
+              title="Atividades Recreativas"
+              description="Arte, música, dança, esportes e brincadeiras que promovem socialização e bem-estar."
+              image={i4}
+            />
+            <ProgramCard
+              icon={Users}
+              title="Reintegração Familiar"
+              description="Trabalho junto à Assistência Social para reintegração familiar responsável."
+              image={i5}
+            />
+            <ProgramCard
+              icon={Shield}
+              title="Articulação em Rede"
+              description="Parceria com a rede de Assistência Social, saúde e educação da região."
+              image={i6}
+            />
           </div>
 
           <div className="text-center mt-12">
             <Button variant="cta" size="lg" asChild>
-              <Link to="/programas">
-                Conheça Todos os Programas
+              <Link to="/sobre">
+                Conheça mais sobre nós
                 <ArrowRight size={20} />
               </Link>
             </Button>
@@ -240,120 +302,43 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Parcerias */}
-      <section className="section-padding bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="container-custom">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Nossas Parcerias
-            </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Trabalhamos em conjunto com diversas instituições para oferecer o melhor atendimento
-            </p>
-          </div>
+      <Parceiros />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="text-primary" size={32} />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Projeto Guri</h3>
-                <p className="text-sm text-muted-foreground">
-                  Parceria para desenvolvimento artístico e cultural
-                </p>
-              </CardContent>
-            </Card>
+      {/* Divisória Decorativa */}
+      <div className="w-full py-12 flex justify-center items-center">
+        <div className="relative w-full max-w-4xl">
+          {/* Linha central com gradiente */}
+          <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
 
-            <Card className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="text-primary" size={32} />
-                </div>
-                <h3 className="font-bold text-lg mb-2">AABB Comunidade</h3>
-                <p className="text-sm text-muted-foreground">
-                  Atividades esportivas e recreativas
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Building2 className="text-primary" size={32} />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Governo Municipal</h3>
-                <p className="text-sm text-muted-foreground">
-                  Apoio e convênios locais
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
-              <CardContent className="p-6">
-                <div className="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Building2 className="text-primary" size={32} />
-                </div>
-                <h3 className="font-bold text-lg mb-2">Governos Estadual e Federal</h3>
-                <p className="text-sm text-muted-foreground">
-                  Políticas públicas e recursos
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Depoimentos */}
-      <section className="section-padding bg-primary/5">
-        <div className="container-custom">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Depoimentos
-            </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto rounded-full" />
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="O Lar Francisco Franco faz um trabalho essencial na nossa comunidade. É inspirador ver o compromisso de cada profissional com o bem-estar das crianças e adolescentes."
-              author="Maria Silva"
-              role="Voluntária"
-            />
-            <TestimonialCard
-              quote="Parceria que faz a diferença! Nossa empresa se orgulha de apoiar uma OSC tão séria e comprometida com a proteção e desenvolvimento das crianças."
-              author="João Santos"
-              role="Empresário Parceiro"
-            />
-            <TestimonialCard
-              quote="Cada visita ao Lar nos enche de esperança. Ver o cuidado dedicado às crianças e adolescentes acolhidos é emocionante."
-              author="Ana Costa"
-              role="Doadora"
+          {/* Elemento decorativo centrado */}
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 bg-background">
+            <Heart
+              className="text-primary drop-shadow-md animate-pulse"
+              size={36}
             />
           </div>
         </div>
-      </section>
+      </div>
 
       {/* Blog Preview */}
-      <section className="section-padding bg-gradient-to-br from-primary/10 to-secondary/10">
+      <section className="pt-6 pb-12 px-4">
         <div className="container-custom">
-          <div className="flex justify-between items-center mb-12">
+          <div className="flex justify-center items-center mb-12">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 text-center">
                 Últimas Notícias
               </h2>
-              <div className="w-24 h-1 bg-secondary rounded-full" />
+              <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto text-center">
+                Acompanhe de perto as atividades, conquistas e parcerias do Lar Francisco Franco.
+              </p>
             </div>
-            <Button variant="outline" asChild>
-              <Link to="/blog">Ver Todas</Link>
-            </Button>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[1, 2, 3].map((item) => (
               <Card key={item} className="overflow-hidden shadow-card hover:shadow-hover transition-smooth group cursor-pointer bg-white">
-                <div className="h-48 bg-gradient-primary" />
+                <div className="h-48 bg-primary" />
                 <CardContent className="p-6">
                   <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
                     <Calendar size={16} />
@@ -372,11 +357,18 @@ const Index = () => {
               </Card>
             ))}
           </div>
+          <div className="flex w-full justify-center align-center">
+            <Button variant="outline" size="xl" className="mt-12" asChild>
+              <Link to="/noticias">Ver Todas
+                <ArrowRight size={20} />
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
 
       {/* CTA Final */}
-      <section className="section-padding bg-primary text-primary-foreground">
+      <section className="section-padding bg-primary text-primary-foreground border-b-4">
         <div className="container-custom text-center">
           <Heart className="mx-auto mb-6 fill-secondary text-secondary" size={64} />
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -402,7 +394,6 @@ const Index = () => {
         </div>
       </section>
 
-      <Footer />
     </div>
   );
 };

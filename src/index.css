@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 210 100% 97%;
+    --background: 210 50% 90%;
     --foreground: 215 85% 20%;
 
     --card: 0 0% 100%;
@@ -22,7 +22,7 @@ All colors MUST be HSL.
     --primary-foreground: 0 0% 100%;
 
     /* Azul claro suave - secundária */
-    --secondary: 200 100% 70%;
+    --secondary: 208 100% 49%;
     --secondary-foreground: 220 100% 25%;
 
     --muted: 210 50% 94%;
@@ -44,7 +44,7 @@ All colors MUST be HSL.
     --gradient-primary: linear-gradient(135deg, hsl(200 100% 70%), hsl(220 100% 35%));
     --gradient-hero: linear-gradient(135deg, hsl(220 100% 25% / 0.95), hsl(200 100% 70% / 0.85));
     --gradient-section: linear-gradient(180deg, hsl(210 100% 97%), hsl(210 70% 92%));
-    
+
     /* Sombras suaves */
     --shadow-soft: 0 4px 20px hsl(220 100% 25% / 0.1);
     --shadow-card: 0 8px 30px hsl(220 100% 25% / 0.15);
@@ -94,7 +94,12 @@ All colors MUST be HSL.
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold;
   }
 }
@@ -137,9 +142,12 @@ All colors MUST be HSL.
   }
 
   @keyframes float {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translateY(0px);
     }
+
     50% {
       transform: translateY(-20px);
     }

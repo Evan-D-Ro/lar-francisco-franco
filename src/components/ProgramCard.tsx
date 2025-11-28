@@ -14,7 +14,7 @@ export const ProgramCard = ({ title, description, icon: Icon, image, className }
   return (
     <Card className={cn("group overflow-hidden shadow-card hover:shadow-hover transition-smooth cursor-pointer", className)}>
       {image && (
-        <div className="relative h-48 overflow-hidden">
+        <div className="relative h-96 overflow-hidden">
           <img
             src={image}
             alt={title}

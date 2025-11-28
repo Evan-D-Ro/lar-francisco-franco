@@ -1,5 +1,4 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { FileText, Download, Shield, Users, TrendingUp } from "lucide-react";
@@ -7,9 +6,8 @@ import { FileText, Download, Shield, Users, TrendingUp } from "lucide-react";
 const Transparencia = () => {
   return (
     <div className="min-h-screen">
-      <Header />
-      
-      <main className="pt-24">
+
+      <main className="pt-20">
         {/* Hero Section */}
         <section className="section-padding bg-gradient-to-br from-primary via-primary/95 to-primary/90">
           <div className="container-custom text-center">
@@ -32,8 +30,8 @@ const Transparencia = () => {
                 Nosso Compromisso com a Transparência
               </h2>
               <p className="text-muted-foreground leading-relaxed">
-                Acreditamos que a transparência é fundamental para construir e manter a confiança dos nossos 
-                parceiros, doadores e da comunidade. Por isso, disponibilizamos de forma clara e acessível 
+                Acreditamos que a transparência é fundamental para construir e manter a confiança dos nossos
+                parceiros, doadores e da comunidade. Por isso, disponibilizamos de forma clara e acessível
                 todos os documentos e informações sobre nossa gestão.
               </p>
             </div>
@@ -271,7 +269,6 @@ const Transparencia = () => {
         </section>
       </main>
 
-      <Footer />
     </div>
   );
 };

@@ -1,49 +1,79 @@
-import { Header } from "@/components/Header";
-import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
-import { Users, Heart, Target, Award, Calendar } from "lucide-react";
+import { ProgramCard } from "@/components/ProgramCard"; // Certifique-se que este componente existe
+import {
+  Users, Heart, Target, Award, Calendar,
+  Home, BookOpen, Brain, Palette, Shield, Sparkles
+} from "lucide-react";
+
+// Importe suas imagens aqui conforme seu projeto
+import i1 from "@/assets/1.png";
+import i2 from "@/assets/2.png";
+import i3 from "@/assets/3.png";
+import i4 from "@/assets/4.png";
+import i5 from "@/assets/5.png";
+import i6 from "@/assets/6.png";
 
 const Sobre = () => {
+  // Dados da Equipe (Placeholder)
+  const teamMembers = [
+    { name: "Emiliana Baccarin", role: "Psicóloga", image: "https://i.pravatar.cc/150?img=1" },
+    { name: "Bruna", role: "Assistente Social", image: "https://i.pravatar.cc/150?img=5" },
+    { name: "Soraya Gharib", role: "Coordenadora Pedagógica", image: "https://i.pravatar.cc/150?img=9" },
+    { name: "Sandra Gomes", role: "Coordenadora Administrativa", image: "https://i.pravatar.cc/150?img=10" },
+    { name: "Gilberto Milani (Zuca)", role: "Zelador", image: "https://i.pravatar.cc/150?img=12" },
+    { name: "Alexandre (Xande)", role: "Professor de Capoeira", image: "https://i.pravatar.cc/150?img=13" },
+    { name: "Carol", role: "Pedagoga", image: "https://i.pravatar.cc/150?img=16" },
+    { name: "Luiz", role: "Educador Físico", image: "https://i.pravatar.cc/150?img=14" },
+  ];
+
+  // Dados da Rotina
+  const routineItems = [
+    { time: "7h00", activity: "Início da busca de crianças nos pontos de ônibus estratégicos" },
+    { time: "8h00", activity: "Chegada das crianças e início das atividades" },
+    { time: "10h00", activity: "Pausa para lanche da manhã (frutas)" },
+    { time: "12h00", activity: "Almoço e troca de turno (saída manhã / entrada tarde)" },
+    { time: "13h00", activity: "Início das atividades do período da tarde" },
+    { time: "15h30", activity: "Pausa para o lanche da tarde" },
+    { time: "16h30", activity: "Início da despedida e transporte para casa" },
+  ];
+
   return (
     <div className="min-h-screen">
-      <Header />
-      
-      <main className="pt-24">
-      {/* Hero Section */}
-      <section className="section-padding bg-gradient-to-br from-primary via-primary/95 to-primary/90">
+      <main className="pt-20">
+
+        {/* 1. HERO SECTION */}
+        <section className="section-padding bg-gradient-to-br from-primary via-primary/95 to-primary/90">
           <div className="container-custom text-center">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 animate-fade-in">
               Sobre o Lar Francisco Franco
             </h1>
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
             <p className="text-lg md:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed">
-              Uma OSC que desde 1960 dedica-se ao acolhimento e desenvolvimento integral de crianças e adolescentes 
-              de 6 a 14 anos em situação de vulnerabilidade, em parceria com a Assistência Social de Rancharia/SP.
-            </p>
+              Uma OSC que desde 1960 dedica-se ao acolhimento e desenvolvimento integral de crianças e adolescentes de 6 a 14 anos em situação de vulnerabilidade, em parceria com a Assistência Social de Rancharia/SP.            </p>
           </div>
         </section>
 
-        {/* Nossa História */}
+        {/* Nossa História (Mantido igual) */}
         <section className="section-padding bg-background">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="animate-slide-in-left">
                 <h2 className="text-3xl font-bold text-primary mb-6">Nossa História</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    O Lar Francisco Franco foi fundado em 1960, em Rancharia/SP, 
-                    como um projeto social sem fins lucrativos dedicado ao acolhimento e proteção de crianças e adolescentes 
+                  <p className="text-justify">
+                    O Lar Francisco Franco foi fundado em 1960, em Rancharia/SP,
+                    como um projeto social sem fins lucrativos dedicado ao acolhimento e proteção de crianças e adolescentes
                     de 6 a 14 anos em situação de vulnerabilidade social.
                   </p>
-                  <p>
-                    Ao longo das décadas, nossa instituição se tornou referência em acolhimento 
-                    no contraturno escolar, utilizando o Serviço de Convivência e Fortalecimento de Vínculos. 
-                    Atendemos crianças das zonas rurais e urbanas do município, sempre pautados 
+                  <p className="text-justify">
+                    Ao longo das décadas, nossa instituição se tornou referência em acolhimento
+                    no contraturno escolar, utilizando o Serviço de Convivência e Fortalecimento de Vínculos.
+                    Atendemos crianças das zonas rurais e urbanas do município, sempre pautados
                     pelos princípios do amor, respeito e dignidade humana.
                   </p>
-                  <p>
-                    Funcionamos de segunda a sexta-feira, das 8h às 17h, proporcionando um ambiente seguro, acolhedor 
-                    e estruturado, onde cada criança e adolescente possa ter seus direitos garantidos e 
+                  <p className="text-justify">
+                    Funcionamos de segunda a sexta-feira, das 8h às 17h, proporcionando um ambiente seguro, acolhedor
+                    e estruturado, onde cada criança e adolescente possa ter seus direitos garantidos e
                     desenvolver todo seu potencial em parceria com a Assistência Social.
                   </p>
                 </div>
@@ -106,7 +136,8 @@ const Sobre = () => {
           </div>
         </section>
 
-        {/* Missão, Visão e Valores Detalhado */}
+
+        {/* Missão, Visão e Valores (Mantido igual) */}
         <section className="section-padding bg-primary">
           <div className="container-custom">
             <div className="text-center mb-12">
@@ -122,9 +153,9 @@ const Sobre = () => {
                   <Target className="text-primary mb-4" size={48} />
                   <h3 className="text-2xl font-bold text-primary mb-4">Missão</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Acolher e proteger crianças e adolescentes de 6 a 14 anos em situação de 
-                    vulnerabilidade, trabalhando em parceria com a Assistência Social para garantir 
-                    seus direitos fundamentais, proporcionando um ambiente seguro e acolhedor com 
+                    Acolher e proteger crianças e adolescentes de 6 a 14 anos em situação de
+                    vulnerabilidade, trabalhando em parceria com a Assistência Social para garantir
+                    seus direitos fundamentais, proporcionando um ambiente seguro e acolhedor com
                     profissionais qualificados e comprometidos.
                   </p>
                 </CardContent>
@@ -135,8 +166,8 @@ const Sobre = () => {
                   <Target className="text-primary mb-4" size={48} />
                   <h3 className="text-2xl font-bold text-primary mb-4">Visão</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Ser referência em acolhimento institucional na região, reconhecida pela excelência 
-                    no atendimento e pelo compromisso com o desenvolvimento integral das crianças e 
+                    Ser referência em atendimento socioeducativo, reconhecida pela excelência
+                    no atendimento e pelo compromisso com o desenvolvimento social das crianças e
                     adolescentes acolhidos, em parceria com a rede de Assistência Social.
                   </p>
                 </CardContent>
@@ -173,48 +204,139 @@ const Sobre = () => {
             </div>
           </div>
         </section>
-
-        {/* Equipe */}
-        <section className="section-padding bg-gradient-to-br from-primary/5 to-secondary/10">
+        {/* 4. NOSSOS PROGRAMAS (Integrado aqui) */}
+        <section className="section-padding bg-gray-50">
           <div className="container-custom">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                Nossa Equipe
+                O Que Fazemos
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
-              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Profissionais qualificados e dedicados que fazem a diferença todos os dias
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Conjunto completo de atividades voltadas ao desenvolvimento integral.
               </p>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {[
-                { title: "Psicóloga", count: "1" },
-                { title: "Assistente Social", count: "1" },
-                { title: "Coordenadora Pedagógica", count: "1" },
-                { title: "Coordenadora Administrativa", count: "1" },
-                { title: "Zelador", count: "1" },
-                { title: "Professor de Capoeira", count: "1" },
-                { title: "Auxiliar Geral", count: "2" },
-                { title: "Educadores Físicos", count: "2" },
-                { title: "Pedagogas", count: "3" },
-              ].map((team) => (
-                <Card key={team.title} className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
-                  <CardContent className="p-6">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <Users className="text-primary" size={32} />
+            <div className="grid md:grid-cols-3 gap-8">
+              <ProgramCard
+                icon={Home}
+                title="Acolhimento Institucional"
+                description="Ambiente seguro e acolhedor com cuidados integrais, quartos confortáveis e alimentação balanceada."
+                image={i1}
+              />
+              <ProgramCard
+                icon={BookOpen}
+                title="Apoio Escolar"
+                description="Acompanhamento das atividades escolares, garantindo frequência e apoio nas tarefas em parceria com a escola."
+                image={i2}
+              />
+              <ProgramCard
+                icon={Brain}
+                title="Apoio Psicossocial"
+                description="Atendimento psicológico e social especializado para fortalecimento de vínculos e desenvolvimento emocional."
+                image={i3}
+              />
+              <ProgramCard
+                icon={Palette}
+                title="Atividades Recreativas"
+                description="Arte, música, dança e esportes para estimular a socialização e criatividade."
+                image={i4}
+              />
+              <ProgramCard
+                icon={Users}
+                title="Reintegração Familiar"
+                description="Trabalho focado no fortalecimento familiar e preparação para o retorno seguro ao lar."
+                image={i5}
+
+              />
+              <ProgramCard
+                icon={Shield}
+                title="Articulação em Rede"
+                description="Parcerias com saúde, educação e assistência social para garantia de direitos."
+                image={i6}
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* 5. ATIVIDADES COMPLEMENTARES E ROTINA */}
+        <section className="section-padding bg-primary">
+          <div className="container-custom">
+
+            {/* Atividades Complementares */}
+            <div className="mb-20">
+              <div className="text-center mb-10">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Diferenciais do Atendimento</h2>
+              </div>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all text-center">
+                  <Heart className="text-secondary mb-4 mx-auto" size={40} />
+                  <h3 className="text-xl font-bold mb-2 text-primary">Alimentação</h3>
+                  <p className="text-sm text-muted-foreground">Cardápio nutritivo elaborado por nutricionista do município e profissionais da cozinha Piloto.</p>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all text-center">
+                  <Sparkles className="text-secondary mb-4 mx-auto" size={40} />
+                  <h3 className="text-xl font-bold mb-2 text-primary">Saúde</h3>
+                  <p className="text-sm text-muted-foreground">Acompanhamento médico e odontológico regular junto a profissionais voluntários.</p>
+                </div>
+                <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all text-center">
+                  <Users className="text-secondary mb-4 mx-auto" size={40} />
+                  <h3 className="text-xl font-bold mb-2 text-primary">Cultura</h3>
+                  <p className="text-sm text-muted-foreground">Passeios e experiências culturais enriquecedoras e atividades ao ar livre no espaço disponibilizado pela AABB de Rancharia/SP,.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Rotina */}
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-10">
+                <h2 className="text-3xl font-bold text-white mb-4">Nossa Rotina Diária</h2>
+                <p className="text-muted">Uma estrutura pensada para segurança e desenvolvimento.</p>
+              </div>
+              <div className="space-y-4">
+                {routineItems.map((item, index) => (
+                  <div key={index} className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 p-4 bg-gray-50 rounded-lg border-l-4 border-secondary hover:bg-gray-100 transition-colors">
+                    <div className="text-xl font-bold text-primary md:w-24 shrink-0">{item.time}</div>
+                    <div className="text-gray-600">{item.activity}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. EQUIPE */}
+        <section className="section-padding bg-gradient-to-br from-primary/5 to-secondary/10">
+          <div className="container-custom">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Nossa Equipe</h2>
+              <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
+              <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                Quem faz tudo isso acontecer com dedicação e carinho.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {teamMembers.map((member, index) => (
+                <Card key={index} className="text-center shadow-card hover:shadow-hover transition-all duration-300 hover:-translate-y-1 bg-white overflow-hidden group">
+                  <CardContent className="p-6 flex flex-col items-center">
+                    <div className="w-28 h-28 rounded-full border-4 border-secondary/20 p-1 mb-4 group-hover:border-secondary transition-colors">
+                      <img
+                        src={member.image}
+                        alt={`Foto de ${member.name}`}
+                        className="w-full h-full rounded-full object-cover"
+                      />
                     </div>
-                    <div className="text-3xl font-bold text-primary mb-2">{team.count}</div>
-                    <p className="text-sm font-medium text-muted-foreground">{team.title}</p>
+                    <h3 className="text-lg font-bold text-primary mb-1">{member.name}</h3>
+                    <p className="text-xs font-bold text-secondary uppercase tracking-wider">{member.role}</p>
                   </CardContent>
                 </Card>
               ))}
             </div>
           </div>
         </section>
-      </main>
 
-      <Footer />
+      </main>
     </div>
   );
 };
