@@ -32,7 +32,7 @@ export const Hero = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
-            Uma OSC dedicada ao acolhimento e desenvolvimento integral de crianças e adolescentes de 6 a 14 anos.
+            Uma OSC dedicada ao Serviço de Convivência e Fortalecimento de Vínculos de crianças e adolescentes de 6 a 15 anos.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">

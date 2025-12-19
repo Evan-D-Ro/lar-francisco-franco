@@ -71,7 +71,7 @@ const Noticias = () => {
             else setLoading(true);
 
             // Ajuste a URL base conforme necessário (ex: /api/noticias.php se estiver usando proxy no vite ou URL completa)
-            const url = new URL("https://flashweb.com.br/noticias.php");
+            const url = new URL("https://aprovacao.larfranciscofranco.com.br/noticias.php");
             url.searchParams.append("limit", "6");
             if (cursor) url.searchParams.append("cursor", cursor);
             if (searchTerm) url.searchParams.append("search", searchTerm);

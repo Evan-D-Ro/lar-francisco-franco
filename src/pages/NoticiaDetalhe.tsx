@@ -17,7 +17,7 @@ const NoticiaDetalhes = () => {
 
         const interval = setInterval(() => {
             setCurrentSlide((prev) => (prev + 1) % noticia.imagens.length);
-        }, 4000); // Aumentei um pouco para 4s para dar mais tempo de leitura visual
+        }, 4000);
 
         return () => clearInterval(interval);
     }, [noticia]);
@@ -28,7 +28,7 @@ const NoticiaDetalhes = () => {
             try {
                 const jaVisualizada = sessionStorage.getItem(`noticia_${id}`);
                 const res = await fetch(
-                    `https://flashweb.com.br/noticia.php?id=${id}${!jaVisualizada ? "&increment=true" : ""}`
+                    `https://aprovacao.larfranciscofranco.com.br/noticia.php?id=${id}${!jaVisualizada ? "&increment=true" : ""}`
                 );
                 const data = await res.json();
                 setNoticia(data);
@@ -78,9 +78,8 @@ const NoticiaDetalhes = () => {
                 </Button>
             </Link>
 
-            {/* Carrossel Ajustado */}
+            {/* Carrossel */}
             {noticia.imagens?.length > 0 && (
-                // AJUSTE 1: Altura responsiva (h-64 no mobile, h-96 ou maior no desktop)
                 <section className="relative mb-8 w-full h-64 sm:h-80 md:h-96 lg:h-[450px] rounded-xl overflow-hidden shadow-md group">
                     {noticia.imagens.map((img: string, idx: number) => (
                         <div
@@ -88,14 +87,11 @@ const NoticiaDetalhes = () => {
                             className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${idx === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
                                 }`}
                         >
-                            {/* AJUSTE 2: w-full e h-full com object-cover para preencher todo o espaço sem distorcer */}
                             <img
                                 src={img}
                                 alt={`${noticia.titulo} - imagem ${idx + 1}`}
                                 className="w-full h-full object-cover"
                             />
-
-                            {/* Gradiente para melhorar leitura dos botões/pontos em imagens claras */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                         </div>
                     ))}
@@ -103,7 +99,6 @@ const NoticiaDetalhes = () => {
                     {/* Botões de navegação e Indicadores */}
                     {noticia.imagens.length > 1 && (
                         <div className="z-20 relative h-full">
-                            {/* Botão Anterior */}
                             <button
                                 onClick={() =>
                                     setCurrentSlide(
@@ -113,23 +108,19 @@ const NoticiaDetalhes = () => {
                                     )
                                 }
                                 className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm text-white p-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
-                                aria-label="Slide anterior"
                             >
                                 <ChevronLeft className="h-6 w-6" />
                             </button>
 
-                            {/* Botão Próximo */}
                             <button
                                 onClick={() =>
                                     setCurrentSlide((currentSlide + 1) % noticia.imagens.length)
                                 }
                                 className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 backdrop-blur-sm text-white p-2 rounded-full transition-all opacity-0 group-hover:opacity-100"
-                                aria-label="Próximo slide"
                             >
                                 <ChevronRight className="h-6 w-6" />
                             </button>
 
-                            {/* Indicadores (Bolinhas) */}
                             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
                                 {noticia.imagens.map((_: any, idx: number) => (
                                     <button
@@ -139,7 +130,6 @@ const NoticiaDetalhes = () => {
                                             ? "bg-white w-6 h-2"
                                             : "bg-white/50 w-2 h-2 hover:bg-white/80"
                                             }`}
-                                        aria-label={`Ir para slide ${idx + 1}`}
                                     />
                                 ))}
                             </div>
@@ -177,14 +167,21 @@ const NoticiaDetalhes = () => {
 
             {/* Conteúdo */}
             <Card className="border-none shadow-none sm:shadow-sm sm:border">
-                <CardContent className="p-0 sm:p-8">
+                {/* AJUSTE 1: Alterado de 'p-0 sm:p-8' para 'px-2 py-4 sm:p-8' 
+                    Isso adiciona padding no mobile para o texto não colar na borda.
+                    Se quiser mais espaço, use 'px-4' ou 'px-5'.
+                */}
+                <CardContent className="px-2 py-4 sm:p-8">
                     {noticia.descricao && (
-                        <blockquote className="border-l-4 border-primary pl-4 py-1 my-6 text-lg italic text-gray-700 bg-gray-50/50 rounded-r-lg">
+                        // AJUSTE 2: Adicionei margem negativa leve ou padding extra se necessário, 
+                        // mas com o padding do CardContent acima, o blockquote já vai respirar.
+                        <blockquote className="border-l-4 border-primary pl-4 py-2 my-6 text-lg italic text-gray-700 bg-gray-50 rounded-r-lg">
                             {noticia.descricao}
                         </blockquote>
                     )}
 
-                    <div className="prose prose-lg prose-gray max-w-none text-justify leading-relaxed text-gray-800 whitespace-pre-line">
+                    {/* AJUSTE 3: Mantido o prose, o padding do pai (CardContent) resolve as margens laterais */}
+                    <div className="prose prose-lg prose-gray max-w-none text-justify leading-relaxed text-gray-800 whitespace-pre-line break-words">
                         {noticia.conteudo}
                     </div>
 

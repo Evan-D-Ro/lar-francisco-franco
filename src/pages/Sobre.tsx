@@ -1,8 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { ProgramCard } from "@/components/ProgramCard"; // Certifique-se que este componente existe
+import { ProgramCard } from "@/components/ProgramCard";
 import {
   Users, Heart, Target, Award, Calendar,
-  Home, BookOpen, Brain, Palette, Shield, Sparkles
+  Home, BookOpen, Brain, Palette, Shield, Sparkles, Music
 } from "lucide-react";
 
 // Importe suas imagens aqui conforme seu projeto
@@ -13,17 +13,44 @@ import i4 from "@/assets/4.png";
 import i5 from "@/assets/5.png";
 import i6 from "@/assets/6.png";
 
+import amanda from "@/assets/time/amanda.jpeg";
+import bruna from "@/assets/time/bruna.jpeg";
+import carol from "@/assets/time/carol.jpeg";
+import evelin from "@/assets/time/evelin.jpeg";
+import gilberto from "@/assets/time/gilberto.jpeg";
+import joao from "@/assets/time/joao.jpeg";
+import luiz from "@/assets/time/luiz.jpeg";
+import michele from "@/assets/time/michele.jpeg";
+import soraya from "@/assets/time/soraya.jpeg";
+import tamara from "@/assets/time/tamara.jpeg";
+import taina from "@/assets/time/taina.jpeg";
+import vanderleia from "@/assets/time/vanderleia.jpeg";
+
+
 const Sobre = () => {
-  // Dados da Equipe (Placeholder)
+  // Dados da Equipe (Mantidos conforme original, atualize se necessário)
+  // Dados da Equipe Atualizados
   const teamMembers = [
-    { name: "Emiliana Baccarin", role: "Psicóloga", image: "https://i.pravatar.cc/150?img=1" },
-    { name: "Bruna", role: "Assistente Social", image: "https://i.pravatar.cc/150?img=5" },
-    { name: "Soraya Gharib", role: "Coordenadora Pedagógica", image: "https://i.pravatar.cc/150?img=9" },
-    { name: "Sandra Gomes", role: "Coordenadora Administrativa", image: "https://i.pravatar.cc/150?img=10" },
-    { name: "Gilberto Milani (Zuca)", role: "Zelador", image: "https://i.pravatar.cc/150?img=12" },
+    // Coordenação e Administração
+    { name: "Sandra Barreto da Mota Gomes", role: "Coordenadora Administrativa", image: "https://i.pravatar.cc/150?img=12" },
+    { name: "Soraya El Gharib Jorge Estêvão", role: "Coordenadora Pedagógica", image: soraya },
+    { name: "Michele Cristina Lima", role: "Secretária", image: michele },
+
+    // Equipe Técnica
+    { name: "Bruna de Lira Silva", role: "Assistente Social", image: bruna },
+
+    // Educadores
+    { name: "Carolina da Silva Souza", role: "Educadora Social", image: carol },
+    { name: "Taina", role: "Educadora Social", image: taina },
+    { name: "Luiz Silva Santos", role: "Educador Social", image: luiz },
+    { name: "João Pedro", role: "Educador Social", image: joao },
+    { name: "Tamara Pascoal Barreto", role: "Educadora Social", image: tamara },
+    { name: "Amanda Carolina", role: "Educadora Social", image: amanda },
     { name: "Alexandre (Xande)", role: "Professor de Capoeira", image: "https://i.pravatar.cc/150?img=13" },
-    { name: "Carol", role: "Pedagoga", image: "https://i.pravatar.cc/150?img=16" },
-    { name: "Luiz", role: "Educador Físico", image: "https://i.pravatar.cc/150?img=14" },
+
+    // Apoio
+    { name: "Vanderleia Roza da Silva de Abreu", role: "Servente", image: vanderleia },
+    { name: "Gilberto Milan", role: "Servente", image: gilberto },
   ];
 
   // Dados da Rotina
@@ -49,11 +76,12 @@ const Sobre = () => {
             </h1>
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
             <p className="text-lg md:text-xl text-white/95 max-w-3xl mx-auto leading-relaxed">
-              Uma OSC que desde 1960 dedica-se ao acolhimento e desenvolvimento integral de crianças e adolescentes de 6 a 14 anos em situação de vulnerabilidade, em parceria com a Assistência Social de Rancharia/SP.            </p>
+              Uma organização que desde 1960 dedica-se ao <strong>Serviço de Convivência e Fortalecimento de Vínculos</strong> para crianças e adolescentes de 6 a 15 anos, em parceria com a Assistência Social de Rancharia/SP.
+            </p>
           </div>
         </section>
 
-        {/* Nossa História (Mantido igual) */}
+        {/* Nossa História */}
         <section className="section-padding bg-background">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -61,20 +89,13 @@ const Sobre = () => {
                 <h2 className="text-3xl font-bold text-primary mb-6">Nossa História</h2>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p className="text-justify">
-                    O Lar Francisco Franco foi fundado em 1960, em Rancharia/SP,
-                    como um projeto social sem fins lucrativos dedicado ao acolhimento e proteção de crianças e adolescentes
-                    de 6 a 14 anos em situação de vulnerabilidade social.
+                    O sonho começou na década de 50 com <strong>Dona Josefina Molina Alves</strong>, que idealizava um local para cuidar de meninas desamparadas. Compartilhando desse ideal, o então <strong>Deputado Francisco Franco</strong> doou o terreno para a concretização deste nobre sonho.
                   </p>
                   <p className="text-justify">
-                    Ao longo das décadas, nossa instituição se tornou referência em acolhimento
-                    no contraturno escolar, utilizando o Serviço de Convivência e Fortalecimento de Vínculos.
-                    Atendemos crianças das zonas rurais e urbanas do município, sempre pautados
-                    pelos princípios do amor, respeito e dignidade humana.
+                    Fundado oficialmente em <strong>03 de outubro de 1960</strong>, a instituição funcionou inicialmente em regime de internato. Porém, acompanhando as mudanças sociais e legais, em 1993 readequou seu estatuto para atender a realidade local.
                   </p>
                   <p className="text-justify">
-                    Funcionamos de segunda a sexta-feira, das 8h às 17h, proporcionando um ambiente seguro, acolhedor
-                    e estruturado, onde cada criança e adolescente possa ter seus direitos garantidos e
-                    desenvolver todo seu potencial em parceria com a Assistência Social.
+                    Hoje, atuamos como <strong>Serviço de Convivência e Fortalecimento de Vínculos</strong>. Através de parcerias com a Prefeitura, FENABB (AABB Comunidade) e Projeto Guri, atendemos cerca de 300 crianças e adolescentes, oferecendo oficinas, esporte, cultura e cidadania no contraturno escolar.
                   </p>
                 </div>
               </div>
@@ -92,18 +113,7 @@ const Sobre = () => {
                         </div>
                         <div>
                           <h4 className="font-bold text-lg mb-1">1960</h4>
-                          <p className="text-muted-foreground text-sm">Fundação do Lar Francisco Franco</p>
-                        </div>
-                      </div>
-                      <div className="flex gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
-                            <Award className="text-primary" size={20} />
-                          </div>
-                        </div>
-                        <div>
-                          <h4 className="font-bold text-lg mb-1">1975</h4>
-                          <p className="text-muted-foreground text-sm">Reconhecimento como Utilidade Pública Municipal</p>
+                          <p className="text-muted-foreground text-sm">Fundação por Dona Josefina e Dep. Francisco Franco.</p>
                         </div>
                       </div>
                       <div className="flex gap-4">
@@ -113,19 +123,19 @@ const Sobre = () => {
                           </div>
                         </div>
                         <div>
-                          <h4 className="font-bold text-lg mb-1">2000</h4>
-                          <p className="text-muted-foreground text-sm">Ampliação das instalações e modernização</p>
+                          <h4 className="font-bold text-lg mb-1">1994</h4>
+                          <p className="text-muted-foreground text-sm">Início do Projeto "Um Novo Mundo" (Regime de semi-abrigo).</p>
                         </div>
                       </div>
                       <div className="flex gap-4">
                         <div className="flex-shrink-0">
                           <div className="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
-                            <Heart className="text-primary" size={20} />
+                            <Award className="text-primary" size={20} />
                           </div>
                         </div>
                         <div>
-                          <h4 className="font-bold text-lg mb-1">2025</h4>
-                          <p className="text-muted-foreground text-sm">Mais de 500 vidas transformadas</p>
+                          <h4 className="font-bold text-lg mb-1">Hoje</h4>
+                          <p className="text-muted-foreground text-sm">Serviço de Convivência para 300 crianças (6 a 15 anos).</p>
                         </div>
                       </div>
                     </div>
@@ -136,12 +146,11 @@ const Sobre = () => {
           </div>
         </section>
 
-
-        {/* Missão, Visão e Valores (Mantido igual) */}
+        {/* Missão, Visão e Valores */}
         <section className="section-padding bg-primary">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
                 Missão, Visão e Valores
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto rounded-full" />
@@ -153,10 +162,7 @@ const Sobre = () => {
                   <Target className="text-primary mb-4" size={48} />
                   <h3 className="text-2xl font-bold text-primary mb-4">Missão</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Acolher e proteger crianças e adolescentes de 6 a 14 anos em situação de
-                    vulnerabilidade, trabalhando em parceria com a Assistência Social para garantir
-                    seus direitos fundamentais, proporcionando um ambiente seguro e acolhedor com
-                    profissionais qualificados e comprometidos.
+                    Atender crianças e adolescentes de 6 a 15 anos em situação de vulnerabilidade, através do Serviço de Convivência, assegurando seus direitos e fortalecendo os vínculos familiares e comunitários.
                   </p>
                 </CardContent>
               </Card>
@@ -166,9 +172,7 @@ const Sobre = () => {
                   <Target className="text-primary mb-4" size={48} />
                   <h3 className="text-2xl font-bold text-primary mb-4">Visão</h3>
                   <p className="text-muted-foreground leading-relaxed">
-                    Ser referência em atendimento socioeducativo, reconhecida pela excelência
-                    no atendimento e pelo compromisso com o desenvolvimento social das crianças e
-                    adolescentes acolhidos, em parceria com a rede de Assistência Social.
+                    Ser referência em atendimento socioeducativo, reconhecida pela excelência e pelo compromisso com o desenvolvimento social, inclusão e resgate da autoestima dos atendidos.
                   </p>
                 </CardContent>
               </Card>
@@ -184,7 +188,7 @@ const Sobre = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary mt-1">•</span>
-                      <span>Compromisso com o desenvolvimento integral</span>
+                      <span>Fortalecimento de vínculos</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary mt-1">•</span>
@@ -192,11 +196,7 @@ const Sobre = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-secondary mt-1">•</span>
-                      <span>Transparência e ética</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-secondary mt-1">•</span>
-                      <span>Trabalho em equipe e profissionalismo</span>
+                      <span>Ética e Transparência</span>
                     </li>
                   </ul>
                 </CardContent>
@@ -204,7 +204,8 @@ const Sobre = () => {
             </div>
           </div>
         </section>
-        {/* 4. NOSSOS PROGRAMAS (Integrado aqui) */}
+
+        {/* 4. O QUE FAZEMOS (PROGRAMAS) */}
         <section className="section-padding bg-gray-50">
           <div className="container-custom">
             <div className="text-center mb-12">
@@ -213,53 +214,53 @@ const Sobre = () => {
               </h2>
               <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Conjunto completo de atividades voltadas ao desenvolvimento integral.
+                Ações socioeducativas no contraturno escolar para o desenvolvimento integral.
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
+              {/* Card Atualizado: Serviço de Convivência */}
               <ProgramCard
-                icon={Home}
-                title="Acolhimento Institucional"
-                description="Ambiente seguro e acolhedor com cuidados integrais, quartos confortáveis e alimentação balanceada."
+                icon={Users}
+                title="Serviço de Convivência"
+                description="Fortalecimento de vínculos familiares e sociais, prevenindo situações de risco através de um ambiente seguro e estimulante."
                 image={i1}
               />
               <ProgramCard
                 icon={BookOpen}
-                title="Apoio Escolar"
-                description="Acompanhamento das atividades escolares, garantindo frequência e apoio nas tarefas em parceria com a escola."
+                title="Apoio Pedagógico"
+                description="Oficinas didático-lúdicas que auxiliam no desenvolvimento cognitivo e escolar."
                 image={i2}
               />
               <ProgramCard
                 icon={Brain}
                 title="Apoio Psicossocial"
-                description="Atendimento psicológico e social especializado para fortalecimento de vínculos e desenvolvimento emocional."
+                description="Atendimento com psicóloga e assistente social para suporte emocional e garantia de direitos."
                 image={i3}
               />
               <ProgramCard
-                icon={Palette}
-                title="Atividades Recreativas"
-                description="Arte, música, dança e esportes para estimular a socialização e criatividade."
+                icon={Music}
+                title="Cultura e Arte"
+                description="Parceria com o Projeto Guri e oficinas de música, dança e capoeira para estimular a criatividade."
                 image={i4}
               />
               <ProgramCard
-                icon={Users}
-                title="Reintegração Familiar"
-                description="Trabalho focado no fortalecimento familiar e preparação para o retorno seguro ao lar."
+                icon={Heart}
+                title="Fortalecimento Familiar"
+                description="Trabalho focado na inclusão social e no fortalecimento da função protetiva da família."
                 image={i5}
-
               />
               <ProgramCard
                 icon={Shield}
-                title="Articulação em Rede"
-                description="Parcerias com saúde, educação e assistência social para garantia de direitos."
+                title="Rede de Proteção"
+                description="Articulação constante com o CRAS, CREAS, Saúde e Educação para assegurar os direitos do ECA."
                 image={i6}
               />
             </div>
           </div>
         </section>
 
-        {/* 5. ATIVIDADES COMPLEMENTARES E ROTINA */}
+        {/* 5. DIFERENCIAIS E ROTINA */}
         <section className="section-padding bg-primary">
           <div className="container-custom">
 
@@ -272,17 +273,17 @@ const Sobre = () => {
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all text-center">
                   <Heart className="text-secondary mb-4 mx-auto" size={40} />
                   <h3 className="text-xl font-bold mb-2 text-primary">Alimentação</h3>
-                  <p className="text-sm text-muted-foreground">Cardápio nutritivo elaborado por nutricionista do município e profissionais da cozinha Piloto.</p>
+                  <p className="text-sm text-muted-foreground">Cardápio nutritivo elaborado por nutricionista e fornecido pela Cozinha Piloto municipal.</p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all text-center">
                   <Sparkles className="text-secondary mb-4 mx-auto" size={40} />
-                  <h3 className="text-xl font-bold mb-2 text-primary">Saúde</h3>
-                  <p className="text-sm text-muted-foreground">Acompanhamento médico e odontológico regular junto a profissionais voluntários.</p>
+                  <h3 className="text-xl font-bold mb-2 text-primary">Parcerias Fortes</h3>
+                  <p className="text-sm text-muted-foreground">Programa AABB Integração Comunidade (FENABB) e Projeto Guri (Sustenidos).</p>
                 </div>
                 <div className="bg-gray-50 p-6 rounded-xl border border-gray-100 hover:shadow-lg transition-all text-center">
                   <Users className="text-secondary mb-4 mx-auto" size={40} />
-                  <h3 className="text-xl font-bold mb-2 text-primary">Cultura</h3>
-                  <p className="text-sm text-muted-foreground">Passeios e experiências culturais enriquecedoras e atividades ao ar livre no espaço disponibilizado pela AABB de Rancharia/SP,.</p>
+                  <h3 className="text-xl font-bold mb-2 text-primary">Espaço e Lazer</h3>
+                  <p className="text-sm text-muted-foreground">Atividades ao ar livre, esportes e recreação no amplo espaço da AABB de Rancharia.</p>
                 </div>
               </div>
             </div>
@@ -291,7 +292,7 @@ const Sobre = () => {
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-10">
                 <h2 className="text-3xl font-bold text-white mb-4">Nossa Rotina Diária</h2>
-                <p className="text-muted">Uma estrutura pensada para segurança e desenvolvimento.</p>
+                <p className="text-muted">Estrutura organizada para atender os dois turnos escolares.</p>
               </div>
               <div className="space-y-4">
                 {routineItems.map((item, index) => (
@@ -312,11 +313,11 @@ const Sobre = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Nossa Equipe</h2>
               <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Quem faz tudo isso acontecer com dedicação e carinho.
+                Profissionais dedicados ao bem-estar e desenvolvimento das crianças.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {teamMembers.map((member, index) => (
                 <Card key={index} className="text-center shadow-card hover:shadow-hover transition-all duration-300 hover:-translate-y-1 bg-white overflow-hidden group">
                   <CardContent className="p-6 flex flex-col items-center">

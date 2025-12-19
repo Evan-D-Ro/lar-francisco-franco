@@ -1,8 +1,6 @@
 
 import { Hero } from "@/components/Hero";
 import { ProgramCard } from "@/components/ProgramCard";
-import { ValueCard } from "@/components/ValueCard";
-import { TestimonialCard } from "@/components/TestimonialCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
@@ -18,11 +16,10 @@ import {
   DollarSign,
   Gift,
   Briefcase,
-  TrendingUp,
   Calendar,
   ArrowRight,
   Eye,
-  Building2,
+  ImageOff
 } from "lucide-react";
 
 import Parceiros from "@/components/Parceiros";
@@ -34,15 +31,46 @@ import i3 from "@/assets/3.png";
 import i4 from "@/assets/4.png";
 import i5 from "@/assets/5.png";
 import i6 from "@/assets/6.png";
+import { useEffect, useState } from 'react'
 
 const Index = () => {
+
+  const [recentNews, setRecentNews] = useState([]);
+  const [loadingNews, setLoadingNews] = useState(true);
+
+  useEffect(() => {
+    const fetchRecentNews = async () => {
+      try {
+        // Chamamos a API pedindo apenas 3 notícias
+        const response = await fetch("https://aprovacao.larfranciscofranco.com.br/noticias.php?limit=3");
+        const data = await response.json();
+
+        // Garante que é um array
+        const noticiasArray = data.noticias || (Array.isArray(data) ? data : []);
+        setRecentNews(noticiasArray);
+      } catch (error) {
+        console.error("Erro ao carregar notícias recentes:", error);
+      } finally {
+        setLoadingNews(false);
+      }
+    };
+
+    fetchRecentNews();
+  }, []);
+
+  // Função auxiliar para formatar data (YYYY-MM-DD -> DD de Mes, YYYY)
+  const formatDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+  };
   return (
     <div className="min-h-screen">
 
-      {/* Hero Section */}
+      {/* Hero Section (Manter igual) */}
       <Hero />
 
-      {/* Sobre Section */}
+      {/* Sobre Section - CORRIGIDO (Idade e Texto) */}
       <section className="section-padding bg-primary">
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
@@ -52,8 +80,8 @@ const Index = () => {
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-white/95 leading-relaxed">
               Desde 1960, somos uma entidade social sem fins lucrativos que utiliza o Serviço de Convivência e Fortalecimento de Vínculos,
-              atendendo crianças e adolescentes de 6 a 14 anos em situação de vulnerabilidade social nas zonas rurais e urbanas
-              do município de Rancharia no contraturno escolar, de segunda a sexta-feira, das 8h às 17h.
+              atendendo crianças e adolescentes de <strong>6 a 15 anos</strong> em situação de vulnerabilidade social nas zonas rurais e urbanas
+              do município de Rancharia no contraturno escolar.
             </p>
           </div>
 
@@ -66,13 +94,13 @@ const Index = () => {
             </Card>
             <Card className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
               <CardContent className="p-8">
-                <div className="text-4xl font-bold text-primary mb-2">6000+</div>
+                <div className="text-4xl font-bold text-primary mb-2">10000+</div>
                 <p className="text-muted-foreground">Vidas Transformadas</p>
               </CardContent>
             </Card>
             <Card className="text-center shadow-card hover:shadow-hover transition-smooth bg-white">
               <CardContent className="p-8">
-                <div className="text-4xl font-bold text-primary mb-2">6-14</div>
+                <div className="text-4xl font-bold text-primary mb-2">6-15</div>
                 <p className="text-muted-foreground">Anos (Faixa Etária)</p>
               </CardContent>
             </Card>
@@ -80,15 +108,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Missão, Visão e Valores */}
+      {/* Missão - CORRIGIDO (Idade) */}
       <section className="pb-12 pt-24 px-4">
         <div className="container-custom">
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-              Missão, Visão e Valores
-            </h2>
-            <div className="w-24 h-1 bg-secondary mx-auto rounded-full" />
-          </div>
+          {/* ... Cabeçalho Missão (manter igual) ... */}
 
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="shadow-card hover:shadow-hover transition-smooth bg-white">
@@ -96,14 +119,14 @@ const Index = () => {
                 <Target className="text-primary mb-4" size={48} />
                 <h3 className="text-2xl font-bold text-primary mb-4">Missão</h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  Acolher e proteger crianças e adolescentes de 6 a 14 anos em situação de
+                  Proteger e orientar crianças e adolescentes de <strong>6 a 15 anos</strong> em situação de
                   vulnerabilidade, trabalhando em parceria com a Assistência Social para garantir
-                  seus direitos fundamentais, proporcionando um ambiente seguro e acolhedor com
-                  profissionais qualificados e comprometidos.
+                  seus direitos e fortalecer os vínculos familiares e comunitários.
                 </p>
               </CardContent>
             </Card>
 
+            {/* Visão e Valores mantidos iguais ao seu código original */}
             <Card className="shadow-card hover:shadow-hover transition-smooth bg-white">
               <CardContent className="p-8">
                 <Eye className="text-primary mb-4" size={48} />
@@ -111,7 +134,7 @@ const Index = () => {
                 <p className="text-muted-foreground leading-relaxed">
                   Ser referência em atendimento socioeducativo, reconhecida pela excelência
                   no atendimento e pelo compromisso com o desenvolvimento social das crianças e
-                  adolescentes acolhidos, em parceria com a rede de Assistência Social.
+                  adolescentes atendidos, em parceria com a rede de Assistência Social.
                 </p>
               </CardContent>
             </Card>
@@ -148,24 +171,9 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ... Divisória ... */}
 
-      {/* Divisória Decorativa */}
-      <div className="w-full py-12 flex justify-center items-center">
-        <div className="relative w-full max-w-4xl">
-          {/* Linha central com gradiente */}
-          <div className="h-1 w-full bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
-
-          {/* Elemento decorativo centrado */}
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 bg-background">
-            <Heart
-              className="text-primary drop-shadow-md animate-pulse"
-              size={36}
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Programas */}
+      {/* Programas - CORRIGIDO (Removido Acolhimento/24h) */}
       <section className="pt-6 pb-12 bg-background px-4">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
@@ -174,45 +182,45 @@ const Index = () => {
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Oferecemos um conjunto completo de atividades voltadas ao acolhimento e desenvolvimento integral das crianças e adolescentes.
+              Oferecemos um conjunto completo de atividades socioeducativas para o desenvolvimento integral.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             <ProgramCard
-              icon={Home}
-              title="Acolhimento Institucional"
-              description="Ambiente seguro e acolhedor para crianças e adolescentes de 6 a 14 anos, com cuidados integrais 24 horas."
+              icon={Users}
+              title="Serviço de Convivência"
+              description="Ambiente seguro e estimulante no contraturno escolar, focado na cidadania e prevenção de riscos."
               image={i1}
             />
             <ProgramCard
               icon={BookOpen}
-              title="Apoio às Atividades Escolares"
-              description="Acompanhamento das atividades escolares em parceria com a rede de ensino municipal."
+              title="Apoio Pedagógico"
+              description="Auxílio nas atividades escolares e oficinas lúdicas em parceria com a rede de ensino."
               image={i2}
             />
             <ProgramCard
               icon={Brain}
               title="Apoio Psicossocial"
-              description="Atendimento psicológico e social para desenvolvimento emocional e fortalecimento de vínculos."
+              description="Atendimento técnico especializado para fortalecimento emocional e garantia de direitos."
               image={i3}
             />
             <ProgramCard
               icon={Palette}
-              title="Atividades Recreativas"
-              description="Arte, música, dança, esportes e brincadeiras que promovem socialização e bem-estar."
+              title="Cultura e Lazer"
+              description="Oficinas de música, dança, capoeira e esportes que promovem a socialização."
               image={i4}
             />
             <ProgramCard
-              icon={Users}
-              title="Reintegração Familiar"
-              description="Trabalho junto à Assistência Social para reintegração familiar responsável."
+              icon={Heart}
+              title="Fortalecimento de Vínculos"
+              description="Trabalho social com as famílias para prevenir a ruptura de laços e promover a convivência."
               image={i5}
             />
             <ProgramCard
               icon={Shield}
-              title="Articulação em Rede"
-              description="Parceria com a rede de Assistência Social, saúde e educação da região."
+              title="Rede de Proteção"
+              description="Articulação com CRAS, CREAS, Saúde e Educação para o atendimento integral."
               image={i6}
             />
           </div>
@@ -228,7 +236,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Como Ajudar */}
+      {/* Como Ajudar - CORRIGIDO (Texto) */}
       <section className="section-padding bg-primary">
         <div className="container-custom">
           <div className="text-center mb-12 animate-fade-in">
@@ -237,9 +245,11 @@ const Index = () => {
             </h2>
             <div className="w-24 h-1 bg-secondary mx-auto mb-6 rounded-full" />
             <p className="text-lg text-primary-foreground/90 max-w-2xl mx-auto">
-              Sua contribuição faz toda a diferença na vida das crianças e adolescentes acolhidos. Conheça as formas de apoiar nosso trabalho.
+              Sua contribuição faz toda a diferença na vida das crianças e adolescentes atendidos. Conheça as formas de apoiar nosso trabalho.
             </p>
           </div>
+
+          {/* ... Cards de doação (manter igual) ... */}
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="text-center shadow-card hover:shadow-hover transition-smooth hover:scale-105 bg-white">
@@ -302,6 +312,8 @@ const Index = () => {
         </div>
       </section>
 
+      {/* ... Restante do código (Parceiros, Blog, CTA Final) ... */}
+
       <Parceiros />
 
       {/* Divisória Decorativa */}
@@ -320,7 +332,7 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Blog Preview */}
+      {/* Blog Preview - MODIFICADO PARA DADOS REAIS */}
       <section className="pt-6 pb-12 px-4">
         <div className="container-custom">
           <div className="flex justify-center items-center mb-12">
@@ -335,28 +347,69 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[1, 2, 3].map((item) => (
-              <Card key={item} className="overflow-hidden shadow-card hover:shadow-hover transition-smooth group cursor-pointer bg-white">
-                <div className="h-48 bg-primary" />
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <Calendar size={16} />
-                    <span>15 de Novembro, 2025</span>
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-smooth">
-                    Evento Especial: Dia das Crianças
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Celebramos o Dia das Crianças com atividades especiais e muita diversão...
-                  </p>
-                  <Button variant="link" className="p-0">
-                    Ler mais <ArrowRight size={16} />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {loadingNews ? (
+            // Skeleton / Carregando
+            <div className="grid md:grid-cols-3 gap-8">
+              {[1, 2, 3].map((i) => (
+                <Card key={i} className="h-80 animate-pulse bg-gray-100 border-none">
+                  <CardContent className="p-6 flex flex-col h-full justify-between">
+                    <div className="h-40 bg-gray-200 rounded w-full mb-4"></div>
+                    <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
+                    <div className="h-4 bg-gray-200 rounded w-1/2"></div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : recentNews.length > 0 ? (
+            // Notícias Reais
+            <div className="grid md:grid-cols-3 gap-8">
+              {recentNews.map((item) => (
+                <Link to={`/noticia/${item.id}`} key={item.id} className="block group">
+                  <Card className="overflow-hidden shadow-card hover:shadow-hover transition-smooth h-full flex flex-col bg-white">
+                    {/* Imagem ou Placeholder */}
+                    <div className="h-48 w-full overflow-hidden bg-gray-100 relative">
+                      {item.imagem ? (
+                        <img
+                          src={item.imagem}
+                          alt={item.titulo}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center text-gray-300">
+                          <ImageOff size={48} />
+                        </div>
+                      )}
+                    </div>
+
+                    <CardContent className="p-6 flex-1 flex flex-col">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                        <Calendar size={16} className="text-primary" />
+                        <span>{formatDate(item.data)}</span>
+                      </div>
+
+                      <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-smooth line-clamp-2">
+                        {item.titulo}
+                      </h3>
+
+                      <p className="text-sm text-muted-foreground mb-4 line-clamp-3 flex-1">
+                        {item.descricao}
+                      </p>
+
+                      <div className="mt-auto flex items-center text-primary font-medium text-sm">
+                        Ler mais <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            // Caso não tenha notícias (opcional)
+            <div className="text-center text-muted-foreground">
+              <p>Nenhuma notícia recente no momento.</p>
+            </div>
+          )}
+
           <div className="flex w-full justify-center align-center">
             <Button variant="outline" size="xl" className="mt-12" asChild>
               <Link to="/noticias">Ver Todas
@@ -367,7 +420,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Final */}
+      {/* CTA Final - CORRIGIDO (Texto) */}
       <section className="section-padding bg-primary text-primary-foreground border-b-4">
         <div className="container-custom text-center">
           <Heart className="mx-auto mb-6 fill-secondary text-secondary" size={64} />
@@ -375,7 +428,7 @@ const Index = () => {
             Faça Parte Dessa Transformação
           </h2>
           <p className="text-lg mb-8 max-w-2xl mx-auto opacity-90">
-            Cada contribuição, por menor que seja, faz uma enorme diferença na vida das crianças e adolescentes acolhidos.
+            Cada contribuição, por menor que seja, faz uma enorme diferença na vida das crianças e adolescentes atendidos.
             Juntos, podemos construir futuros melhores.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -69,7 +69,7 @@ const Parceiros = () => {
                                     className="h-full w-auto object-contain mx-auto"
                                 />
                             </div>
-                            <h3 className="font-bold text-lg mb-2">Governo Municipal</h3>
+                            <h3 className="font-bold text-lg mb-2">Prefeitura de Rancharia/SP</h3>
                             <p className="text-sm text-muted-foreground">
                                 Apoio e convênios locais para transporte, holerites e mantimento da entidade.
                             </p>

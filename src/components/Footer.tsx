@@ -89,7 +89,7 @@ export const Footer = () => {
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail size={18} className="text-secondary shrink-0" />
-                    <p className="text-sm text-primary-foreground/70">contato@larfranciscofranco.org.br</p>
+                    <p className="text-sm text-primary-foreground/70">contato@larfranciscofranco.com.br</p>
                   </div>
                 </div>
               </div>
